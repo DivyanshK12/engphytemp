@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS The other is for google icons  -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+    <link rel="icon" href="https://image.flaticon.com/icons/svg/547/547855.svg" type="image/svg">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Raleway:wght@600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/896fee2659.js" crossorigin="anonymous"></script>
+    <title>
+      Courses
+    </title>
+    <style>
+      body{
+        font-family: 'Raleway', sans-serif;
+      }
+      .dropdown-item:active
+      {
+        background-color: #030DFF;
+      }
+      a:hover
+      {
+        text-decoration: none;
+      }
+      .card-title
+      {
+        font-size: large;
+        font-weight: bold;
+      }
+      .image_wrap img
+      {
+        width:100%;
+        height:6cm;
+        transition: 350ms ease;
+        cursor: pointer;
+      }
+      .image_wrap img:hover
+      {
+        transform: scale(1.05);
+      }
+        #pm:hover
+        {
+          background-color: #000000;
+          color: white;
+        }
+        #sc:hover
+        {
+          background-color: #030DFF;
+          color: white;
+        }
+        #pm
+        {
+          color:#000000;
+          border: #000000 1px;
+          border-radius: 0%;
+          font-family: 'Raleway', sans-serif;
+        }
+        #sc
+        {
+          color: #030DFF;
+          border: #030DFF 1px;
+          border-radius: 0%;
+          font-family: 'Raleway', sans-serif;
+        }
+        #mainTitle
+        {
+          font-size: larger;
+          font-family: 'Raleway', sans-serif;
+        }
+        #subTitle
+        {
+          font-size: large;
+          font-family: 'Raleway', sans-serif;
+          color: grey;
+        }
+    </style>
+  </head>
+  <body>
+
+<header>
+  <div class="collapse bg-dark" id="navbarHeader">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 col-md-7 py-4">
+          <div class="d-flex align-items-center text-white">
+            <strong>About</strong>
+          </div>
+          <p class="text-muted">Courses for semester {{ semester_no }}</p>
+        </div>
+        <div class="col-sm-4 offset-md-1 py-4">
+          <h4 class="text-white">Navigation</h4>
+          <ul class="list-unstyled">
+            <div class="btn-group-vertical">
+              <button class="btn btn-secondary btn-lg" type="button" onclick="window.location.href='https://classroom.google.com/'" title="Google Classroom"><i class="fas fa-chalkboard"></i> Google Classroom</button>
+              <button class="btn btn-secondary btn-lg" type="button" onclick="window.location.href='https://mail.google.com/mail/u/1/#inbox'" title="Gmail"><i class="fas fa-envelope-open-text"></i> Gmail</button>
+              <button class="btn btn-secondary btn-lg" type="button" onclick="window.location.href='https://www.iith.ac.in/'" title="IITH Home"><i class="fas fa-home"></i> IITH Homewebpage</button>
+          </div>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="navbar navbar-dark bg-dark shadow-sm">
+    <div class="container d-flex justify-content-between">
+      <a href="/" class="navbar-brand d-flex align-items-center">
+        <strong>Home</strong>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main role="main">
+
+  <section class="jumbotron text-center">
+    <div class="container">
+      <h1 class="display-4 text-dark" style='color: #000000; border-radius: 0%;'><strong>Courses for semester {{ semester_no }}</strong></h1>
+      <p class="lead text-muted">These are courses for semester {{ semester_no }}, to access additional courses type code in URL</p>
+      <p>
+        <div class="btn-group">
+          <button type="button" class="btn btn-secondary my-2 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style='background-color: #000000; border:#000000;'>
+            Semester Number
+          </button>
+          <div class="dropdown-menu text-center">
+            {% for i in range(1,9) %}
+                        <a class="dropdown-item" href="/{{ i }}">{{ i }}</a>
+            {% endfor %}
+          </div>
+        </div>
+      </p>
+    </div>
+  </section>
+
+        <div class="album py-5 bg-light">
+            <div class="container">
+                {% for row_no in range((n//3)+ 1) %}
+                <div class="row" id='Try{{ row_no+1 }}'>
+                    {% for card_no in data[3*row_no : 3*(row_no + 1)]%}
+                    <div class="col-md-4">
+                        <div class="card mb-4 shadow-sm image_wrap">
+                          <a href='/{{ semester_no }}/{{ card_no["course_id"] }}'>
+                          <img src="../static/images/{{ card_no['course_id'] }}.jpg" class="card-img" alt="{{ card_no['course_id'] }}">
+                          </a>
+                          <div class="card-body">
+                            <p class="card-title" id='mainTitle'>{{ card_no['course_title'] }}</p>
+                            <p class="card-text" id='subTitle'>{{ card_no['description'] }}</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                              <div class="btn-group">
+                                <button data-toggle="tooltip" data-placement="bottom" class="btn btn-outline-secondary" data-html="true" title="<h5>{{ card_no['course_id'] }}</h5><p>{{ card_no['resc_title1'] }}<br>{{ card_no['resc_title2'] }}<br>{{ card_no['resc_title3'] }}</p>" id='pm'>Course Status</button>
+                                <a href='/{{ semester_no }}/{{ card_no["course_id"] }}'><button type="button" class="btn btn-outline-primary" id='sc'>View Course</button></a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      {% endfor %}
+                </div><!--Row -->
+                {% endfor %}
+            </div><!--container-->
+        </div><!--album-->
+
+</main>
+<footer class="bg-dark py-5 text-muted text-center">
+  <div class="container">
+      <div class="btn-group btn-group-lg my-3" role="group" aria-label="footer">
+          <button type="button" class="btn btn-secondary"><i class="fab fa-google"></i></button>
+          <button type="button" class="btn btn-secondary"><i class="fab fa-google-drive"></i></button>
+          <button type="button" class="btn btn-secondary"><i class="far fa-calendar-alt"></i></button>
+          <button type="button" class="btn btn-secondary"><i class="fas fa-file"></i></button>
+      </div>
+      <small>
+          <p>&copy; Engineering Physics 2019</p>
+          <p><em>&ldquo;  To boldly go where no man has gone before! &rdquo;</em></p>
+      </small>
+  <p><img class="img-fluid" src="../static/images/logo.png" style="height: 2cm;"></p>
+  </div>
+  </footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.0/ScrollTrigger.min.js"></script>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+        ScrollTrigger.defaults({
+        toggleActions: "restart reset resume reverse"
+        });
+        {% for i in range(n//3) %}
+        gsap.from("#Try{{i+1}}", {scrollTrigger:'#Try{{i+1}}',duration: 1, opacity: 0, scale: 0.5,ease: "power2.out"});
+        {% endfor %}
+    </script>
+    <script>
+      $(function(){
+            $('[data-toggle="tooltip"]').tooltip();
+        })
+    </script>
+  </body>
+</html>

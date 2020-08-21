@@ -1,0 +1,144 @@
+<!Doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="icon" href="https://image.flaticon.com/icons/svg/547/547855.svg" type="image/svg">
+    <script src="https://kit.fontawesome.com/896fee2659.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Raleway:wght@600;700&display=swap" rel="stylesheet">
+    <title>{{ data['course_id'] }}</title>
+    <style>
+      body{
+        font-family: 'Raleway', sans-serif;
+        }
+    .btn-primary
+    {
+        background-color: black;
+        border: none;
+        color: white;
+        border-radius: 0%;
+    }
+    .btn-primary:hover
+    {
+        background-color:#030DFF;
+        color:white;
+        border: none;
+        border-radius: 0%;
+    }
+    </style>
+  </head>
+  <body>
+
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/{{ semester_no }}">Course Page</a>
+          </li>
+          <li class="nav-item px-2">
+            <button class="btn btn-secondary" type="button" onclick="window.location.href='https://classroom.google.com/'" title="Google Classroom"><i class="fas fa-chalkboard"></i></button>
+          </li>
+          <li class="nav-item px-2">
+            <button class="btn btn-secondary" type="button" onclick="window.location.href='https://mail.google.com/mail/u/1/#inbox'" title="Gmail"><i class="fas fa-envelope-open-text"></i></button>
+          </li>
+          <li class="nav-item px-2">
+            <button class="btn btn-secondary" type="button" onclick="window.location.href='https://www.iith.ac.in/'" title="IITH Home"><i class="fas fa-home"></i></button>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    
+    <main role="main">
+    
+      <!-- Main jumbotron for a primary marketing message or call to action -->
+      <div class="jumbotron">
+        <div class="container">
+          <h1 class="display-3">{{ data['course_title'] }}</h1>
+          <h4>{{ data['course_id'] }}</h4>
+          <p>{{ data['description'] }}</p>
+          <p><a class="btn btn-primary btn-lg" href="{{ data['mit_link'] }}'" role="button">Mit Ocw Link &raquo;</a></p>
+        </div>
+      </div>
+    
+      <div class="container">
+        <div class="row row-cols-1 row-cols-md-2">
+          <div class="col mb-4">
+            <div class="card">
+              <iframe height ='300vh' src="{{ data['vid_link1'] }}">
+              </iframe>
+              <div class="card-body">
+                <h5 class="card-title">{{ data['vid_title1'] }}</h5>
+                <p class="card-text">{{ data['vid_desc1'] }}</p>
+              </div>
+            </div>
+          </div>
+          <div class="col mb-4">
+            <div class="card">
+              <iframe height ='300vh'src="{{ data['vid_link2'] }}">
+              </iframe>
+              <div class="card-body">
+                <h5 class="card-title">{{ data['vid_title2'] }}</h5>
+                <p class="card-text">{{ data['vid_desc2'] }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-group">
+          <div class="card">
+            <div class="card-body">
+              <h2 class="card-title">{{ data['resc_title1'] }}</h5>
+              <p class="card-text">{{ data['resc_desc1'] }}</p>
+            </div>
+            <a class="btn btn-primary" href="{{ data['resc_link1'] }}" role="button">Go !</a>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <h2 class="card-title">{{ data['resc_title2'] }}</h5>
+              <p class="card-text">{{ data['resc_desc1'] }}</p>
+            </div>
+            <a class="btn btn-primary" href="{{ data['resc_link2'] }}" role="button">Go !</a>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <h2 class="card-title">{{ data['resc_title3'] }}</h5>
+              <p class="card-text">{{ data['resc_desc1'] }}</p>
+            </div>
+            <a class="btn btn-primary" href="{{ data['resc_link3'] }}" role="button">Go !</a>
+          </div>
+        </div>
+        <hr>
+      </div>
+    </main>
+    <footer class="bg-dark py-5 text-muted text-center">
+    <div class="container">
+      <div class="btn-group btn-group-lg my-3" role="group" aria-label="footer">
+          <button type="button" class="btn btn-secondary"><i class="fab fa-google"></i></button>
+          <button type="button" class="btn btn-secondary"><i class="fab fa-google-drive"></i></button>
+          <button type="button" class="btn btn-secondary"><i class="far fa-calendar-alt"></i></button>
+          <button type="button" class="btn btn-secondary"><i class="fas fa-file"></i></button>
+      </div>
+      <small>
+          <p>&copy; Engineering Physics 2019</p>
+          <p><em>&ldquo;  To boldly go where no man has gone before! &rdquo;</em></p>
+      </small>
+  <p><img class="img-fluid" src="../static/images/logo.png" style="height: 2cm;"></p>
+  </div>
+  </footer>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>

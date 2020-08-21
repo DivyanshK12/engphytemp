@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/896fee2659.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="https://image.flaticon.com/icons/svg/547/547855.svg" type="image/svg">
+
+    <title>Home</title>
+    <style>
+        .dropdown-item:active
+      {
+        background-color: #030DFF;
+      }
+    </style>
+</head>
+<body>
+    <header>
+        <ul class="nav bg-dark" style='padding : 0.5%'>
+            <li class="nav-item">
+              <a class="nav-link active text-white" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="/1">Courses</a>
+            </li>
+            <li class="nav-item px-2">
+                <button class="btn btn-secondary" type="button" onclick="window.location.href='https://classroom.google.com/'" title="Google Classroom"><i class="fas fa-chalkboard"></i></button>
+              </li>
+              <li class="nav-item px-2">
+                <button class="btn btn-secondary" type="button" onclick="window.location.href='https://mail.google.com/mail/u/1/#inbox'" title="Gmail"><i class="fas fa-envelope-open-text"></i></button>
+              </li>
+              <li class="nav-item px-2">
+                <button class="btn btn-secondary" type="button" onclick="window.location.href='https://www.iith.ac.in/'" title="IITH Home"><i class="fas fa-home"></i></button>
+              </li>
+          </ul>
+    </header>
+    <main>
+        <section class="jumbotron text-center">
+            <div class="container">
+              <h1 class="display-4 text-dark" style='color: #000000;'><strong>Engineering Physics</strong></h1>
+              <p class="lead text-muted">Access courses via their semesters through the button below</p>
+              <p>
+              </p>
+            </div>
+          </section>
+          <hr>
+          <div class="container" style='padding: 1%;'>
+              <div class="dropdown text-center">
+                <a href='/allCourses'><button type="button" class="btn btn-lg btn-secondary" style='background-color: #000000; border:#000000; font-size:x-large;border-radius: 0%;'>View All Courses</button></a>
+                  <button class="btn btn-primary btn-lg dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style='background-color: #030DFF; border:#030DFF; font-size:x-large;border-radius: 0%;'>
+                    Semester
+                  </button>
+                  <div class="dropdown-menu text-center" aria-labelledby="dropdownMenuButton">
+                      {% for i in range(1,9) %}
+                          <a class="dropdown-item" href="/{{ i }}">{{ i }}</a>
+                      {% endfor %}
+                  </div>
+                </div>
+          </div>
+        <hr>
+        <div class="container" style='padding: 1%;'>
+            <div id="CarouselExampleControl1" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#CarouselExampleControl1" data-slide-to="0" class="active"></li>
+                    <li data-target="#CarouselExampleControl1" data-slide-to="1"></li>
+                    <li data-target="#CarouselExampleControl1" data-slide-to="2"></li>
+                    <li data-target="#CarouselExampleControl1" data-slide-to="3"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="d-block w-100" src="../static/images/AA1111.jpg" alt="first">
+                        <div class="carousel-caption">
+                            <h5>Title 1</h5>
+                            <p>Commodo aliquip ex minim officia amet adipisicing tempor non ullamco proident.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="../static/images/AA1112.jpg" alt="second">
+                        <div class="carousel-caption">
+                            <h5>Title 2</h5>
+                            <p>Culpa sit ut aliqua elit ea velit.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="../static/images/AA1113.jpg" alt="third">
+                        <div class="carousel-caption">
+                            <h5>Title 3</h5>
+                            <p>Magna exercitation occaecat enim officia duis irure mollit Lorem sunt nostrud dolor commodo id.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="../static/images/AA1112.jpg" alt="fourth">
+                        <div class="carousel-caption">
+                            <h5>Title 4</h5>
+                            <p>Labore incididunt reprehenderit quis dolor deserunt velit dolor aliqua sunt nulla tempor dolore officia incididunt.</p>
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#CarouselExampleControl1" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#CarouselExampleControl1" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="bg-dark py-5 text-muted text-center">
+        <div class="container">
+          <div class="btn-group btn-group-lg my-3" role="group" aria-label="footer">
+              <button type="button" class="btn btn-secondary"><i class="fab fa-google"></i></button>
+              <button type="button" class="btn btn-secondary"><i class="fab fa-google-drive"></i></button>
+              <button type="button" class="btn btn-secondary"><i class="far fa-calendar-alt"></i></button>
+              <button type="button" class="btn btn-secondary"><i class="fas fa-file"></i></button>
+          </div>
+          <small>
+              <p>&copy; Engineering Physics 2019</p>
+              <p><em>&ldquo;  To boldly go where no man has gone before! &rdquo;</em></p>
+          </small>
+      <p><img class="img-fluid" src="../static/images/logo.png" style="height: 2cm;"></p>
+      </div>
+      </footer>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>
