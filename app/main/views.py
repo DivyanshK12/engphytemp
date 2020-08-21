@@ -45,7 +45,7 @@ def allCourses():
     return render_template('available_all.html',semesters = semesters)
 
 @main.route('/debug1/<int:number>')
-def trySem(number):
+def debugSem(number):
     out = ''
     data = Semester.query.all()
     for item in data:
