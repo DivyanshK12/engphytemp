@@ -30,7 +30,7 @@ class Course(db.Model):
 class Semester(db.Model):
     __tablename__ = 'semesters'
     id = db.Column(db.Integer, primary_key = True)
-    coursesrel = db.relationship('Course',backref = 'semester')
+    courses = db.relationship('Course',backref = 'semester')
 
     def __repr__(self):
         return '<Semester %r> ' % self.id
