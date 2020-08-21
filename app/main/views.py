@@ -8,7 +8,7 @@ def validate(courseid):
         return True
     return False
 
-@main.route('/<number>/<courseid>', methods = ['GET','POST'])
+@main.route('/<int:number>/<courseid>', methods = ['GET','POST'])
 def visit_course(number,courseid):
     data = Course.query.filter_by(course_id = courseid).first()
     if data is not None and validate(courseid):
@@ -16,7 +16,7 @@ def visit_course(number,courseid):
     else:
         return "<h1>Invalid Code!</h1>" # maybe error template
 
-@main.route('/<number>')
+@main.route('/<int:number>')
 def visit_semester(number):
     if int(number)< 9 and int(number) >0:
         data = Course.query.filter_by(semester_id = number).all()
@@ -31,7 +31,7 @@ def visit_semester(number):
 def index():
     return render_template('home_temp.html')
 
-@main.route('/check/<number>')
+@main.route('/check/<int:number>')
 def trySem(number):
     out = ''
     data = Course.query.filter_by(semester_id = number).all()
