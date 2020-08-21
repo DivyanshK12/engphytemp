@@ -17,5 +17,5 @@ itsdangerous==1.1.0
 six==1.14.0
 sql==0.4.0
 uritemplate==3.0.1
-gunicorn==18.0
-psycopg2==2.5.1
+gunicorn==20.0.4
+psycopg2==2.8.5
