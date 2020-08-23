@@ -33,7 +33,7 @@
     <div class="list-group">
         <hr>
         <h1 class='text-center'>Semester {{ sem.id }}</h1>
-        {% for course in sem.courses %}
+        {% for course in sem.courserel %}
         <a href="/{{ sem.id }}/{{ course['course_id'] }}" class="list-group-item list-group-item-action text-center">{{ course['course_id'] }} : {{ course['course_title'] }}</a>
         {% endfor %}
       </div>
