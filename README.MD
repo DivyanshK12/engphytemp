@@ -17,6 +17,7 @@ Stated in requirements.txt , include flask , flask_sqlalchemy as main components
 1) Use this repository for source code on heroku in new project
 2) Deploy
 3) Available at https://engphytemp.herokuapp.com/
+4) Demo frontend with more courses at https://dkarmy12.github.io/ep
 
 ## Authors
  Divyansh Kharbanda
